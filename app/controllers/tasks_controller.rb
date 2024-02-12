@@ -10,6 +10,18 @@ class TasksController < ApplicationController
           render 'tasks/create' # can be omitted
         end
       end
+
+      def destroy
+        @task = Task.find_by(id: params[:id])
+        if @task and @task.destroy
+          render json: { success: true }
+        else
+          render json: { success: false }
+        end
+      end
+
+
+
       private
       def task_params
         params.require(:task).permit(:content)

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  
   root 'homepage#index'
-
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # Add routes below this line
   get 'tasks' => 'tasks#index'
   # Add routes below above line

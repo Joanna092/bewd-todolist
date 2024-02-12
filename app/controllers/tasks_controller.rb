@@ -1,2 +1,6 @@
 class TasksController < ApplicationController
-end
+    def index
+      @tasks = Task.all
+      render 'tasks/index' # can be omitted
+    end
+  end
